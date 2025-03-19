@@ -16,7 +16,4 @@ public class CountryPagination {
     private int size;
     private int total;
     private List<Country> data;
-
-
-
 }
