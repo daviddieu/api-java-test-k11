@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.platform.commons.util.StringUtils;
+import utils.RestAssuredUtils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -21,8 +22,7 @@ public class LoginTests {
 
     @BeforeAll
     static void setup() {
-        RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 3000;
+        RestAssuredUtils.setUp();
     }
 
     @Test
@@ -44,7 +44,7 @@ public class LoginTests {
         //3.2 Verify response
         LoginResponse loginResponse = response.as(LoginResponse.class);
         assertThat(StringUtils.isNotBlank(loginResponse.getToken()), is(true));
-        assertThat(loginResponse.getTimeout(), equalTo("120000"));
+        assertThat(Integer.parseInt(loginResponse.getTimeout()), equalTo(120000));
         System.out.println(response.asString());
     }
 
@@ -99,6 +99,7 @@ public class LoginTests {
 //        assertThat(loginResponse.getMessage(), equalTo("Invalid credentials"));
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(loginResponse.getMessage()).isEqualTo("Invalid credentials");
+        softAssertions.assertAll();
         System.out.println(response.asString());
     }
 

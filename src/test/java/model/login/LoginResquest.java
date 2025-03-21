@@ -1,15 +1,20 @@
 package model.login;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class LoginResquest {
     private String username;
     private String password;
+
+    public static LoginResquest getDefault(){
+        return LoginResquest.builder()
+                .username("staff")
+                .password("1234567890")
+                .build();
+    }
 }
