@@ -7,12 +7,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LoginResquest {
+public class LoginRequest {
     private String username;
     private String password;
 
-    public static LoginResquest getDefault(){
-        return LoginResquest.builder()
+    public static LoginRequest getDefault(){
+        return LoginRequest.builder()
                 .username("staff")
                 .password("1234567890")
                 .build();

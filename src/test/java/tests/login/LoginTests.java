@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.login.LoginResponse;
 import model.login.LoginResponseError;
-import model.login.LoginResquest;
+import model.login.LoginRequest;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -27,11 +27,11 @@ public class LoginTests {
 
     @Test
     void verifyUserLoginSuccessful() {
-        LoginResquest loginResquest = new LoginResquest("staff", "1234567890");
+        LoginRequest loginRequest = new LoginRequest("staff", "1234567890");
 
         Response response = RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
-                .body(loginResquest)
+                .body(loginRequest)
                 .post("/api/login");
 
         //1 Verify status code
@@ -50,11 +50,11 @@ public class LoginTests {
 
     @Test
     void verifyUserLoginFail() {
-        LoginResquest loginResquest = new LoginResquest("", "1234567890");
+        LoginRequest loginRequest = new LoginRequest("", "1234567890");
 
         Response response = RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
-                .body(loginResquest)
+                .body(loginRequest)
                 .post("/api/login");
 
         //1 Verify status code
@@ -80,11 +80,11 @@ public class LoginTests {
             "staff, ",
     })
     void verifyUserLoginFail(String username, String password) {
-        LoginResquest loginResquest = new LoginResquest(username, password);
+        LoginRequest loginRequest = new LoginRequest(username, password);
 
         Response response = RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
-                .body(loginResquest)
+                .body(loginRequest)
                 .post("/api/login");
 
         //1 Verify status code
