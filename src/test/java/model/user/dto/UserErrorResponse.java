@@ -1,4 +1,4 @@
-package model.user;
+package model.user.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateUserResponse {
-    private String id;
+public class UserErrorResponse {
+    private String field;
     private String message;
 }

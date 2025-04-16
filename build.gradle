@@ -27,8 +27,12 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
     // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
-
     testImplementation 'org.assertj:assertj-core:3.27.3'
+
+    testImplementation "org.hibernate.orm:hibernate-core:6.6.12.Final"
+    testImplementation 'org.postgresql:postgresql:42.7.4'
+
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2")
 }
 
 test {

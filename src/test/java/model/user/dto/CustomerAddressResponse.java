@@ -1,4 +1,4 @@
-package model.user;
+package model.user.dto;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GetCustomerAddressResponse {
+public class CustomerAddressResponse {
     private String id;
     private String customerId;
     private String streetNumber;

@@ -477,9 +477,8 @@ public class CountryTests {
     }
 
 
-
     @ParameterizedTest(name = "Run test with value: {0}")
-    @ValueSource(ints = {1,2,3})
+    @ValueSource(ints = {1, 2, 3})
     void verifyParameterizedTest(int arg) {
         System.out.println("Start test :" + arg);
     }
@@ -488,7 +487,8 @@ public class CountryTests {
         ObjectMapper mapper = new ObjectMapper();
         // Đọc dữ liệu từ file JSON
         String json = new String(Files.readAllBytes(Paths.get("src/test/resources/data/country/get-countries-data.json")));
-        List<Map<String, String>> data = mapper.readValue(json, new TypeReference<List<Map<String, String>>>() {});
+        List<Map<String, String>> data = mapper.readValue(json, new TypeReference<List<Map<String, String>>>() {
+        });
         return data;
     }
 
@@ -515,7 +515,8 @@ public class CountryTests {
             throw new RuntimeException("File JSON not found!");
         }
 
-        List<Country> data = mapper.readValue(inputStream, new TypeReference<List<Country>>() {});
+        List<Country> data = mapper.readValue(inputStream, new TypeReference<List<Country>>() {
+        });
         return data.stream();
     }
 
@@ -536,7 +537,7 @@ public class CountryTests {
     @Test
     void verifyGetCountryV5CustomerHeader() {
         Response response = RestAssured.given().log().all()
-                .header("api-key","private")
+                .header("api-key", "private")
                 .get("/api/v5/countries");
 
         //1 status code

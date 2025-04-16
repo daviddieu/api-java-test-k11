@@ -1,4 +1,4 @@
-package model.user;
+package model.user.dto;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GetCustomerResponse {
+public class CustomerResponse {
     private String id;
     private String firstName;
     private String lastName;
@@ -19,5 +19,5 @@ public class GetCustomerResponse {
     private String phone;
     private String createdAt;
     private String updatedAt;
-    private List<GetCustomerAddressResponse> addresses;
+    private List<CustomerAddressResponse> addresses;
 }

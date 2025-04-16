@@ -1,4 +1,4 @@
-package model.user;
+package model.user.dto;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CreatUserAddressRequest {
+public class UserAddressRequest {
     private String streetNumber;
     private String street;
     private String ward;
@@ -17,9 +17,9 @@ public class CreatUserAddressRequest {
     private String zip;
     private String country;
 
-    public static CreatUserAddressRequest getDefault(){
+    public static UserAddressRequest getDefault(){
 //        return new AddressRequest("123", "Main St", "Ward 1", "District 1", "Thu Duc", "Ho Chi Minh", "70000", "VN");
-        return CreatUserAddressRequest.builder()
+        return UserAddressRequest.builder()
                 .streetNumber("123")
                 .street("Main St")
                 .ward("Ward 1")
